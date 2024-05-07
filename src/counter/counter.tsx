@@ -1,18 +1,13 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 
-type Props = {
-  value?: number
-}
+import { CounterProvider, counterStore } from './counter.store'
+import { SomeModule } from './some-module'
 
-const Counter: FC<Props> = ({ value = 0 }) => {
-  const [counter, setCounter] = useState(value)
-
+const Counter: FC = () => {
   return (
-    <div>
-      <p>External counter: {counter}</p>
-      <button onClick={() => setCounter((p) => p - 1)}>-</button>
-      <button onClick={() => setCounter((p) => p + 1)}>+</button>
-    </div>
+    <CounterProvider store={counterStore}>
+      <SomeModule />
+    </CounterProvider>
   )
 }
 
