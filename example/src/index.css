@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* *::-webkit-scrollbar-track {} */
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: gray;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #f7f7f7;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+}
