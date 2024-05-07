@@ -1,17 +1,29 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 
-type Props = {
-  value?: number
-}
+import { useCounterSelector } from './use.counter.selector'
+import { useCounterAction } from './use.counter.action'
 
-const Counter: FC<Props> = ({ value = 0 }) => {
-  const [counter, setCounter] = useState(value)
+const Counter: FC = () => {
+  const { count } = useCounterSelector()
+  const { decrease, increase } = useCounterAction()
 
   return (
     <div>
-      <p>Internal counter: {counter}</p>
-      <button onClick={() => setCounter((p) => p - 1)}>-</button>
-      <button onClick={() => setCounter((p) => p + 1)}>+</button>
+      <p>Internal counter: {count}</p>
+      <button
+        onClick={() => {
+          decrease()
+        }}
+      >
+        -
+      </button>
+      <button
+        onClick={() => {
+          increase()
+        }}
+      >
+        +
+      </button>
     </div>
   )
 }
